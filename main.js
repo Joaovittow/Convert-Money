@@ -13,10 +13,10 @@ function convertValues() {
 
 
 
-  const realToday = 1.0
   const dolarToday = 5.2
   const euroToday = 6.2
   const librasToday = 6.5
+  const bitcoinToday = 140
 
 
 //Valor convertido//
@@ -42,11 +42,12 @@ function convertValues() {
     }).format(inputCurrencyValue / librasToday)
   }
 
-  if(currencySelectToConvert.value == 'Real') {
-    currencyValueToConverted.innerHTML = new Intl.NumberFormat('pt-BR', {
+  
+  if(currencySelectToConvert.value == 'Bitcoin') {
+    currencyValueToConverted.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
-      currency: 'BRL'
-    }).format(inputCurrencyValue / realToday)
+      currency: 'BTC'
+    }).format(inputCurrencyValue / bitcoinToday)
   }
 
 
@@ -94,6 +95,11 @@ function currencyChange() {
   if (currencySelectToConvert.value == 'Real') {
     currencyNameConverted.innerHTML = 'Real Brasileiro'
     currencyImage.src = './assets/real.png'
+  }
+  
+  if (currencySelectToConvert.value == 'Bitcoin') {
+    currencyNameConverted.innerHTML = 'BitCoin'
+    currencyImage.src = './assets/bitcoin.png'
   }
   
   convertValues()
